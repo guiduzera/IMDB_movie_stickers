@@ -51,6 +51,8 @@ public class App {
                         break;
                 }
             }
+            System.out.println("Saindo...");
+            scanner.close();
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
