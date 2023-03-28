@@ -32,9 +32,22 @@ public class App {
                         opcao = scanner.nextInt();
                         break;
                     case 2:
-                        System.out.println("\n------------------------\n");
-                        System.out.println("Ops, essa opção ainda não está disponível.");
-                        System.out.println("\n-------------------------\n");
+                        System.out.print("\nDigite a posição do filme:\n");
+                        int position = scanner.nextInt();
+                        System.out.print("\nDigite o nome do arquivo:\n");
+                        String fileName = scanner.next();
+                        System.out.print("\nDigite o texto da figurinha:\n");
+                        // Tem que aceitar espaços
+                        String text = scanner.next().concat(scanner.nextLine());
+                        System.out.println("\n---------------------------------\n");
+                        System.out.println("Criando figurinha...");
+                        System.out.println("\n---------------------------------\n");
+                        List<Map<String, String>> response2 = apiConsumer.getResponseAsList();
+                        StickerMaker stickerMaker = new StickerMaker();
+                        stickerMaker.initializer(response2, position, fileName, text);
+                        System.out.println("\n---------------------------------\n");
+                        System.out.println("figurinha Criada com sucesso! :)");
+                        System.out.println("\n---------------------------------\n");
                         System.out.println("Digite o número da opção desejada:");
                         System.out.println("1 - Listar filmes");
                         System.out.println("2 - Criar Figurinha");
